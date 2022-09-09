@@ -36,33 +36,36 @@ class Add_ViewController: UIViewController {
         let todo: String = todotextField.text!
         let detail: String = detailtextView.text!
 
-        let todoo: Todo? = read()
+        let todolist: Todo? = read()
         
-        if todo != nil{
-            try!realm.write{
-                todoo!.todo = todo
-                todoo!.detail = detail}
+        if todolist != nil {
+            try! realm.write{
+                todolist!.todo = todo
+                todolist!.detail = detail}
             
         }else {
-                let newtodoo = Todo()
-                newtodoo.todo = todo
-                newtodoo.detail = detail
+            let newtodolist = Todo()
+                newtodolist.todo = todo
+                newtodolist.detail = detail
                 
                 try! realm.write{
-                    realm.add(newtodoo)}
-                
+                    realm.add(newtodolist)}
             }
         
-        /*self.navigationController?.popViewController(animated: true)*/
+       /* let alert = UIAlertController(title: "成功", message: "保存しました", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)*/
+        
+        self.navigationController?.popViewController(animated: true)
         
         }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let ViewController: ViewController = segue.destination as! ViewController
-        ViewController.receivelabel = self.todotextField
+       // ViewController.receivelabel = self.todo
     }
     }
 
-    /*
+    */
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -70,5 +73,4 @@ class Add_ViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
-
+}

@@ -11,4 +11,5 @@ import RealmSwift
 class Todo: Object{
     @objc dynamic var todo: String = ""
     @objc dynamic var detail: String = ""
+   // @objc dynamic var day: Date 
 }
