@@ -39,13 +39,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="90" id="ZQ3-lr-YY8">
+                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="90" id="ZQ3-lr-YY8">
                                         <rect key="frame" x="0.0" y="44.5" width="820" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZQ3-lr-YY8" id="9tA-Ep-geq">
                                             <rect key="frame" x="0.0" y="0.0" width="820" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="p87-d0-Wg3" appends="YES" id="1DH-3w-m5p"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -68,6 +72,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZFn-yN-TiP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="p87-d0-Wg3"/>
             </objects>
             <point key="canvasLocation" x="429.51219512195121" y="135.76271186440678"/>
         </scene>
@@ -133,7 +138,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailtextView" destination="Z9w-eq-IpX" id="3dz-G2-mnJ"/>
-                        <outlet property="limitdatapicker" destination="5Ob-im-mNm" id="5kR-dX-36b"/>
                         <outlet property="todotextField" destination="ems-ql-wva" id="1VP-2N-1jR"/>
                     </connections>
                 </viewController>

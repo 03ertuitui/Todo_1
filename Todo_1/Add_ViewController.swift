@@ -12,7 +12,6 @@ class Add_ViewController: UIViewController {
     
     @IBOutlet var todotextField: UITextField!
     @IBOutlet var detailtextView:UITextView!
-    @IBOutlet var limitdatapicker: UIDatePicker!
     
     
     let realm = try! Realm()
@@ -20,19 +19,18 @@ class Add_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let todoo: Todo? = read()
+        let todolist: Todo? = read()
         
-        
-        todotextField.text = todoo?.todo
-        detailtextView.text = todoo?.detail
-
+        todotextField.text = todolist?.todo
+        detailtextView.text = todolist?.detail
         // Do any additional setup after loading the view.
     }
+    
     func read() -> Todo? {
         return realm.objects(Todo.self).first
     }
     
-    @IBAction func save (){
+   /* @IBAction func save (){
         let todo: String = todotextField.text!
         let detail: String = detailtextView.text!
 
@@ -52,13 +50,25 @@ class Add_ViewController: UIViewController {
                     realm.add(newtodolist)}
             }
         
-       /* let alert = UIAlertController(title: "成功", message: "保存しました", preferredStyle: .alert)
+        let alert = UIAlertController(title: "成功", message: "保存しました", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)*/
+        present(alert, animated: true, completion: nil)
         
         self.navigationController?.popViewController(animated: true)
         
+        }*/
+    @IBAction func save() {
+        let todo = Todo()
+        todo.todo = todotextField.text!
+        todo.detail = detailtextView.text!
+        
+        try! realm.write {
+            realm.add(todo)
         }
+        self.navigationController?.popToRootViewController(animated: true)
+
+    }
+    
    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let ViewController: ViewController = segue.destination as! ViewController
        // ViewController.receivelabel = self.todo
